@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'laundry';
   navLinks: any[];
-  //activeLinkIndex = -1;
+  currentNavName!: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.navLinks = [
       {
         label: "Home",
@@ -31,11 +31,14 @@ export class AppComponent {
     ];
   }
 
-  // ngOnInit(): void {
-  //   this.router.events.subscribe(res => {
-  //     this.activeLinkIndex = this.navLinks.indexOf(
-  //       this.navLinks.find(tab => tab.link === "." + this.router.url)
-  //     );
-  //   });
-  // }
+  ngOnInit() {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const childRoute = this.route.firstChild;
+        if (childRoute) {
+          this.currentNavName = childRoute.snapshot.data['navName'];
+        }
+      });
+  }
 }

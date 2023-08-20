@@ -12,15 +12,15 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full"  },
-  { path: 'home', component: HomeComponent }, 
-  { path: "hisrory", component: HistoryComponent },
-  { path: "profile", component: ProfileComponent },
-  { path: "assigned", component: AssignedTaskComponent },
-  { path: "onprocess", component: OnProcessComponent },
-  { path: "completed", component: CompletedComponent },
-  { path: 'detail/:id', component: DetailTaskComponent },
-  { path: 'edit', component: TaskEditComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent , data: { navName: 'Home' }}, 
+  { path: "hisrory", component: HistoryComponent , data: { navName: 'History'}},
+  { path: "profile", component: ProfileComponent , data: { navName: 'Profile'}},
+  { path: "assigned", component: AssignedTaskComponent  , data: { navName: 'Assigned'}},
+  { path: "onprocess", component: OnProcessComponent , data: { navName: 'onprocess'}},
+  { path: "completed", component: CompletedComponent , data: { navName: 'completed'}},
+  { path: 'detail/:id', component: DetailTaskComponent , data: { navName: 'Detail'}},
+  { path: 'edit', component: TaskEditComponent , data: { navName: 'Edit'}},
+  { path: 'login', component: LoginComponent},
   
   
 ];
