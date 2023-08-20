@@ -1,0 +1,30 @@
+
+@import '../colors';
+.main-div{
+    height: 100vh;
+}
+.container{
+    padding-top: 55px !important;
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
+    height: calc(100% - 40px);
+    background: #000;
+    overflow-y: auto;
+   
+} 
+.bottom-nav{
+        position: absolute;
+        bottom: 0;
+        width:100%;
+        background: #000;
+    }
+
+
+
+.top-nav{
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width:100%;
+}

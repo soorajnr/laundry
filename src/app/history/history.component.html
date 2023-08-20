@@ -1,0 +1,54 @@
+
+
+<div class="container">
+    <form  [formGroup]="historyForm" >
+    <div class="row my-3 mx-0 pt-3">
+        <div class="col-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Search Tasks</mat-label>
+                <input matInput placeholder="Search Tasks" [(ngModel)]="searchText"  [ngModelOptions]="{standalone: true}">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+        </div>
+        <div class="col-6">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate formControlName="startDate" placeholder="Start date">
+              <input matEndDate formControlName="endDate" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          
+            <mat-error *ngIf="historyForm.controls.startDate.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="historyForm.controls.endDate.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+          </div>
+          <div class="row mb-4">
+            <div class="col ms-auto">
+                <button mat-raised-button color="warn" (click)="clearAllFilters()">Clear All Filters</button>
+              </div>
+          </div>
+    
+    <div class="col">
+        <ng-container *ngFor="let item of items | filter: searchText;">
+            <mat-card class="mb-3"  *ngIf="item.task === 'Completed' && isWithinDateRange(item)">
+                <mat-card-content class="d-flex align-items-center">                       
+                    <div class="d-flex">
+                        <div class="bg-1" style="background: url({{item.phtoto}})"></div>
+                        <div class="ms-3">
+                            <h3 class="mb-0 text-white">{{item.name}} </h3>
+                            <p class="text-secondary m-0">{{item.id}}</p>
+                        </div>
+                    </div>
+                    <button mat-raised-button color="primary" class="bg-inprocess ms-auto">
+                        {{item.task}} 
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+    </div>
+    </form>
+    </div>
+      

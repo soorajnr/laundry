@@ -1,0 +1,142 @@
+<div class="container pt-5">
+    <div class="row m-0">
+        <form >
+            <div class="col">
+                <mat-form-field  appearance="outline" class="w-100">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Property</mat-label>
+                    <input matInput placeholder="Property">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Location</mat-label>
+                    <input matInput placeholder="Location">
+                  </mat-form-field>
+            </div>
+
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Brand</mat-label>
+                    <input matInput placeholder="Brand">
+                  </mat-form-field>
+            </div>
+
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Model</mat-label>
+                    <input matInput placeholder="Model">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Serial </mat-label>
+                    <input matInput placeholder="Serial">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Asset no. </mat-label>
+                    <input matInput placeholder="Asset no.">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Compliant</mat-label>
+                    <input matInput placeholder="Compliant">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Comments</mat-label>
+                    <input matInput placeholder="Comments">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Completion Comments.</mat-label>
+                    <input matInput placeholder="Completion Comments.">
+                  </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Workmode</mat-label>
+                    <input matInput placeholder="Workmode">
+                  </mat-form-field>
+            </div>
+
+            <div class="col">
+                <label class="text-white mb-2">Employee Signature</label>
+                  <div><canvas #signatureCanvas1></canvas></div>
+                  <div>
+                    <button mat-raised-button  (click)="clearSignature(signaturePad1)" class="me-2">Clear</button>
+                  </div>
+            </div>
+
+            <div class="col mt-3">
+                <label class="text-white mb-2">Customer Signature</label>
+                <div><canvas #signatureCanvas2></canvas> </div>
+                <div>
+                    <button mat-raised-button  (click)="clearSignature(signaturePad2)" class="me-2">Clear</button>
+                </div>
+          </div>
+
+          <div class="col mt-3">
+            <mat-form-field class="w-100" appearance="outline">
+              <div>
+                <mat-toolbar>
+                  <input matInput [(ngModel)]="fileAttr1" readonly name="name" />
+                  <button mat-flat-button color="primary">Browse File</button>
+                </mat-toolbar>
+                <!-- Fetch selected filed on change -->
+                <input
+                  type="file"
+                  #fileInput
+                  class="uploadFile"
+                  (change)="uploadFileEvt1($event)"
+                  name="uploadFile"
+                  multiple="multiple"
+                  accept="image/*"
+                />
+              </div>
+            </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field class="w-100" appearance="outline">
+            <div>
+              <mat-toolbar>
+                <input matInput [(ngModel)]="fileAttr2" readonly name="name2" />
+                <button mat-flat-button color="primary">Browse File</button>
+              </mat-toolbar>
+              <!-- Fetch selected filed on change -->
+              <input
+                type="file"
+                #fileInput
+                class="uploadFile"
+                (change)="uploadFileEvt2($event)"
+                name="uploadFile"
+                multiple="multiple"
+                accept="image/*"
+              />
+            </div>
+          </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-slide-toggle>Work Completed</mat-slide-toggle>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3 mb-5">            
+        <div class="col pe-1"><button mat-stroked-button color="primary" class="btn-strok-primary rounded-pill w-100">Cancel</button></div>
+        <div  class="col ps-1"><button mat-raised-button color="primary" class="btn-primary rounded-pill w-100" (click)="saveDetails()">Save</button></div>
+    </div>
+        </form>
+    </div>
+</div>
