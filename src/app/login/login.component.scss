@@ -1,0 +1,16 @@
+.bg-1{
+    background-size: cover !important;
+    background-position: center !important;
+    height: 100%;
+    background: url(https://media.istockphoto.com/id/1309384812/photo/working-man-plumber-repairs-a-washing-machine-in-home-washing-machine-installation-or-repair.jpg?s=612x612&w=0&k=20&c=LzyfrxrNbu4GQjzbORd4zPMkDYk_dE2LBYf1QKjt11A=);
+    width: 100%;
+    border-radius: 6px;
+}
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #000000d1;
+    left: 0;
+    top: 0;
+}

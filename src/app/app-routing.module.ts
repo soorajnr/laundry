@@ -8,9 +8,10 @@ import { OnProcessComponent } from './on-process/on-process.component';
 import { CompletedComponent } from './completed/completed.component';
 import { DetailTaskComponent } from './detail-task/detail-task.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full"  },
+  { path: "", redirectTo: "login", pathMatch: "full"  },
   { path: 'home', component: HomeComponent }, 
   { path: "hisrory", component: HistoryComponent },
   { path: "profile", component: ProfileComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: "completed", component: CompletedComponent },
   { path: 'detail/:id', component: DetailTaskComponent },
   { path: 'edit', component: TaskEditComponent },
-  
+  { path: 'login', component: LoginComponent },
   
   
 ];

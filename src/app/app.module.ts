@@ -14,6 +14,7 @@ import { CompletedComponent } from './completed/completed.component';
 import { DetailTaskComponent } from './detail-task/detail-task.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { HistoryComponent } from './history/history.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HistoryComponent } from './history/history.component';
     OnProcessComponent,
     CompletedComponent,
     DetailTaskComponent,
-    TaskEditComponent 
+    TaskEditComponent,
+    LoginComponent 
   ],
   imports: [
     BrowserModule,
