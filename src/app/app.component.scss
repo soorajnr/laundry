@@ -20,7 +20,10 @@
         background: #000;
     }
 
-
+    .login-container{
+        padding-top: 0 !important;
+        height: 100vh !important;
+        }
 
 .top-nav{
     position: absolute;
@@ -28,3 +31,11 @@
     z-index: 100;
     width:100%;
 }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .min-auto{
+    min-width: 35px !important;
+    max-width: 35px !important;
+    height: auto !important;
+  }

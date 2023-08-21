@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'laundry';
   navLinks: any[];
   currentNavName!: string;
-
+  isLoginPage: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) {
     this.navLinks = [
       {
@@ -32,6 +32,13 @@ export class AppComponent {
   }
 
   ngOnInit() {
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.isLoginPage = this.route.snapshot.firstChild?.routeConfig?.path === 'login';
+    });
+    
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -40,5 +47,7 @@ export class AppComponent {
           this.currentNavName = childRoute.snapshot.data['navName'];
         }
       });
+
+ 
   }
 }

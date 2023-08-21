@@ -1,15 +1,18 @@
-<mat-toolbar color="primary" class="top-nav">
+<mat-toolbar color="primary" class="top-nav" *ngIf="!isLoginPage;" >
   <span>{{ currentNavName }}</span>
-  <span class="example-fill-remaining-space"></span>
+  <span class="example-spacer"></span>
+  <button mat-stroked-button color="warn" class="rounded-circle min-auto" [matMenuTriggerFor]="menu">SO</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/login">Logout</button>
+</mat-menu>
 </mat-toolbar>
 
 <div class="position-relative main-div">
-  <div class="container p-0">
-   
+  <div class="container p-0" [ngClass]="{'login-container': isLoginPage}">   
     <router-outlet></router-outlet>
   </div>
 
-  <nav mat-tab-nav-bar headerPosition="below" class="bottom-nav">
+  <nav mat-tab-nav-bar headerPosition="below" class="bottom-nav" *ngIf="!isLoginPage;">
     <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive">
       {{link.label}}
     </a>
